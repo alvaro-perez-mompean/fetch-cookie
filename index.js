@@ -49,7 +49,11 @@ module.exports = function fetchCookieDecorator (fetch, jar) {
       try {
         await setCookie(cookie, res.url)
       } catch (err) {
-        console.error(err)
+        if (opts.ignoreCookieErrors) {
+          console.error(err)
+        } else {
+          throw (err)
+        }
       }
     }
 
