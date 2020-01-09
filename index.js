@@ -45,11 +45,11 @@ module.exports = function fetchCookieDecorator (fetch, jar) {
     }
 
     // Store all present cookies
-    for(let cookie of cookies) {
+    for (let cookie of cookies) {
       try {
         await setCookie(cookie, res.url)
-      } catch(err) {
-        console.error(err);
+      } catch (err) {
+        console.error(err)
       }
     }
 
