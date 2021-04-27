@@ -33,7 +33,7 @@ module.exports = function fetchCookieDecorator (fetch, jar) {
         }
 
         return Promise.all(cookies.map(function (cookie) {
-          return setCookie(cookie, res.url)
+          return setCookie(cookie, res.url, {ignoreError: true})
         })).then(function () {
           return res
         })
